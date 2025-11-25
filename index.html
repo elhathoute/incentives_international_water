@@ -252,37 +252,62 @@
                 opacity: 1;
             }
         }
+        
+        .full-width-header-text {
+            margin-left: calc(-1rem - 0.5rem);
+            margin-right: calc(-1rem - 0.5rem);
+            width: calc(100% + 2rem + 1rem);
+        }
+        
+        @media (min-width: 640px) {
+            .full-width-header-text {
+                margin-left: calc(-1.5rem - 0.75rem);
+                margin-right: calc(-1.5rem - 0.75rem);
+                width: calc(100% + 3rem + 1.5rem);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .full-width-header-text {
+                margin-left: calc(-1.5rem - 1rem);
+                margin-right: calc(-1.5rem - 1rem);
+                width: calc(100% + 3rem + 2rem);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .full-width-header-text {
+                margin-left: calc(-2rem - 1.25rem);
+                margin-right: calc(-2rem - 1.25rem);
+                width: calc(100% + 4rem + 2.5rem);
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- Header Section -->
-    <header class="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-3 lg:py-4">
-        <div class="bg-gradient-to-b from-blue-50 to-blue-100 rounded-2xl md:rounded-3xl shadow-lg p-2 md:p-3 lg:p-4">
-            <!-- Top Text -->
-            <div class="text-center mb-2 md:mb-3">
+    <header class="container mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 md:py-4">
+        <div class="bg-gradient-to-b from-blue-50 to-blue-100 rounded-2xl md:rounded-3xl shadow-lg p-2 sm:p-3 md:p-4 lg:p-5 max-h-[280px] sm:max-h-[300px] md:max-h-[320px] lg:max-h-[340px] overflow-visible">
+            <!-- Top Text - Full Width -->
+            <div class="text-center mb-2 md:mb-3 full-width-header-text">
                 <p class="text-blue-900 font-serif text-xs md:text-sm lg:text-base">Under The High Patronage Of His Majesty King Mohammed VI</p>
             </div>
             
             <!-- Main Content: Three Columns -->
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-2 md:gap-3 lg:gap-4 mb-2 md:mb-3">
+            <div class="flex flex-row items-center justify-between gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6 px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4">
                 <!-- Left: IWRA Logo -->
-                <div class="flex flex-col items-center justify-center w-full lg:w-auto">
-                    <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" class="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain">
+                <div class="flex flex-col items-center justify-center flex-shrink-0 p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5">
+                    <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 object-contain max-w-full h-auto">
                 </div>
 
-                <!-- Center: Large Water Droplet with Text -->
-                <div class="text-center flex-1 px-2 lg:px-4">
-                    <img src="https://worldwatercongress.com/wp-content/uploads/2025/01/logo-New2.png" alt="World Water Congress" class="w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto object-contain mb-2">
-                    <h1 class="text-blue-900 text-base md:text-lg lg:text-xl font-bold mb-1">XIX WORLD WATER CONGRESS</h1>
-                    <p class="text-blue-800 text-xs md:text-sm mb-2">International Water Resources Association (IWRA)</p>
-                    <div class="bg-blue-900 text-white px-3 py-1 md:px-4 md:py-2 rounded-lg inline-block">
-                        <p class="text-xs md:text-sm font-semibold">Marrakech, Morocco | 1-5 December 2025</p>
-                    </div>
+                <!-- Center: Large Water Droplet -->
+                <div class="text-center flex-1 px-1 sm:px-2 md:px-3 lg:px-4 xl:px-6 py-2 sm:py-3 md:py-4">
+                    <img src="https://worldwatercongress.com/wp-content/uploads/2025/01/logo-New2.png" alt="World Water Congress" class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 mx-auto object-contain max-w-full h-auto">
                 </div>
 
                 <!-- Right: Morocco -->
-                <div class="flex flex-col items-center justify-center w-full lg:w-auto">
-                    <img src="https://worldwatercongress.com/wp-content/uploads/2025/06/partenaire_01.png" alt="Morocco Coat of Arms" class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain">
+                <div class="flex flex-col items-center justify-center flex-shrink-0 p-1 sm:p-2 md:p-3 lg:p-4 xl:p-5">
+                    <img src="https://worldwatercongress.com/wp-content/uploads/2025/06/partenaire_01.png" alt="Morocco Coat of Arms" class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] xl:w-20 xl:h-20 object-contain max-w-full h-auto">
                 </div>
             </div>
         </div>
