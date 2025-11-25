@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10th World Water Forum - Incentives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.05) 40px, rgba(255,255,255,.05) 80px),
+                repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(0,0,0,.01) 40px, rgba(0,0,0,.01) 80px);
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-hover:active {
+            transform: translateY(-8px) scale(1.01);
+        }
+        
+        .card-icon {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logos-slide {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            animation: slide 40s linear infinite;
+            will-change: transform;
+        }
+        
+        .logos-container:hover .logos-slide {
+            animation-play-state: paused;
+        }
+        
+        .logos-slide img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(0.4) brightness(0.9);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1rem;
+        }
+        
+        .logos-slide img:hover {
+            filter: grayscale(0) brightness(1);
+            transform: scale(1.15);
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .logos-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            width: 100%;
+            padding: 3rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.2) transparent;
+        }
+        
+        .logos-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .logos-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .logos-container::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+        
+        .logos-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .header-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .logos-slide {
+                gap: 2rem;
+            }
+            
+            .logos-slide img {
+                height: 60px;
+            }
+            
+            .card-hover {
+                min-height: 180px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Fullscreen Modal */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .fullscreen-modal.active {
+            display: flex;
+        }
+        
+        .fullscreen-modal img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .fullscreen-modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .fullscreen-modal .close-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header Section -->
+    <header class="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-3 lg:py-4">
+        <div class="bg-white rounded-2xl md:rounded-3xl shadow-lg p-3 md:p-4 lg:p-5">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-2 md:gap-3 lg:gap-4">
+            <!-- Left Logos -->
+            <div class="flex flex-col items-center justify-center w-full lg:w-auto">
+                <div class="text-center header-logo">
+                    <img src="https://worldwatercongress.com/wp-content/uploads/2025/06/partenaire_01.png" alt="Ministry" class="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain">
+                </div>
+            </div>
+
+            <!-- Center Title -->
+            <div class="text-center flex-1 px-2 lg:px-4">
+                <img src="./img/world-water.jpeg" alt="International" class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto object-contain rounded-3xl">
+            </div>
+
+            <!-- Right Logos -->
+            <div class="flex flex-col items-center justify-center w-full lg:w-auto">
+                <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain header-logo">
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- Main Content Cards -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+        <div class="grid grid-cols-2 md:flex gap-4 md:gap-6 lg:gap-8 overflow-x-auto md:overflow-x-auto scrollbar-hide pb-4" style="scroll-behavior: smooth;">
+            <!-- Card 1: Program Side Event -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="program-side-event">
+                <div class="flex flex-col items-center justify-center w-full h-full">
+                    <img src="https://incentives.ma/WWF10/img/P3.jpg" alt="Program Side Event" class="w-full h-full object-cover rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- Card 2: Documentation -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="documentation">
+                <div class="flex flex-col items-center justify-center w-full h-full">
+                    <img src="https://incentives.ma/WWF10/img/P1.jpg" alt="Documentation" class="w-full h-full object-cover rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- Card 3: Film -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="film">
+                <div class="flex flex-col items-center justify-center w-full h-full">
+                    <img src="https://incentives.ma/WWF10/img/P2.jpg" alt="Film" class="w-full h-full object-cover rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- Card 4: Social Media -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="social-media">
+                <div class="flex flex-col items-center justify-center w-full h-full">
+                    <img src="https://incentives.ma/WWF10/img/P4.jpg" alt="Social Media" class="w-full h-full object-cover rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- Card 5: Plan de masse -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="king-hassan-prize">
+                <img src="./img/plan-masse.jpeg" alt="Plan de masse" class="w-full h-full object-cover rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+            </div>
+
+            <!-- Card 6: Logos -->
+            <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-lg card-hover cursor-pointer flex items-center justify-center group flex-shrink-0 w-[250px] h-[250px] md:w-[250px] md:h-[250px]" data-card="about-forum">
+                <div class="flex flex-col items-center justify-center w-full h-full">
+                    <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" class="w-full h-full object-contain rounded-xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section - Sliding Logos -->
+    <footer class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6 lg:py-8">
+        <div class="bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 md:p-5 lg:p-6">
+            <div class="logos-container">
+            <div class="logos-slide">
+                <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+                <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+                <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Modal for Plan de masse -->
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span class="close-btn">&times;</span>
+        <img id="fullscreen-modal-img" src="./img/plan-masse.jpeg" alt="Plan de masse">
+    </div>
+
+    <script>
+        // Enhanced click handlers for cards with ripple effect
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const title = this.querySelector('h3')?.textContent || 'Card';
+                const cardType = this.getAttribute('data-card');
+                
+                console.log(`Clicked: ${title}`);
+                
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+                
+                // Handle specific card navigation
+                if (cardType === 'king-hassan-prize') {
+                    // Open fullscreen modal for Plan de masse
+                    const modal = document.getElementById('fullscreen-modal');
+                    const modalImg = document.getElementById('fullscreen-modal-img');
+                    if (modal && modalImg) {
+                        modalImg.src = './img/plan-masse.jpeg';
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                } else {
+                    const cardUrls = {
+                        'program-side-event': 'https://incentives.ma/WWF10/file.html?p=15',
+                        'documentation': 'https://incentives.ma/WWF10/document-1.html',
+                        'film': 'https://incentives.ma/WWF10/0202/film.html',
+                        'social-media': 'https://incentives.ma/WWF10/rs.html',
+                        'about-forum': 'https://incentives.ma/WWF10/0202/worldwater.html'
+                    };
+                    
+                    if (cardType && cardUrls[cardType]) {
+                        window.location.href = cardUrls[cardType];
+                    }
+                }
+            });
+        });
+        
+        // Add smooth scroll behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+        
+        // Pause logo animation on hover
+        const logosContainer = document.querySelector('.logos-container');
+        if (logosContainer) {
+            logosContainer.addEventListener('mouseenter', function() {
+                const slide = this.querySelector('.logos-slide');
+                if (slide) {
+                    slide.style.animationPlayState = 'paused';
+                }
+            });
+            
+            logosContainer.addEventListener('mouseleave', function() {
+                const slide = this.querySelector('.logos-slide');
+                if (slide) {
+                    slide.style.animationPlayState = 'running';
+                }
+            });
+        }
+    </script>
+    
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    
+    <!-- Fullscreen Modal for Plan de masse -->
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span class="close-btn">&times;</span>
+        <img id="fullscreen-modal-img" src="./img/plan-masse.jpeg" alt="Plan de masse">
+    </div>
+    
+    <script>
+        // Close modal functionality
+        const modal = document.getElementById('fullscreen-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        function closeModal() {
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+        
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
