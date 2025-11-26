@@ -741,7 +741,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 15px 20px;
+        padding: 5px 20px;
         margin: 0 auto;
         max-width: 1400px;
     }
@@ -851,5 +851,12 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
             padding: 8px 15px;
+        }
+        
+        #sponsored-section h3,
+        #media-partners-section h3 {
+            font-size: 0.9rem !important;
+            letter-spacing: 0.5px !important;
+            padding: 8px 15px !important;
         }
     }
