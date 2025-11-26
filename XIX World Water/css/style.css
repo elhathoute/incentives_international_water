@@ -41,7 +41,6 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        padding: 40px 0;
         /*display: flex;*/
         /*justify-content: center;*/
         /*align-items: center;*/
@@ -56,7 +55,7 @@
     .service .card {
 
         width: 250px;
-        height: 250px;
+        height: 133px !important;
 
         /* background: rgba(255, 255, 255); */
         /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
@@ -738,6 +737,15 @@
         width: 100%;
     }
     
+    .banner-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 20px;
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+    
     .banner-content {
         display: flex;
         align-items: center;
@@ -747,16 +755,25 @@
         max-width: 1400px;
     }
     
+    .banner-content .banner-section {
+        flex: 0 0 auto;
+    }
+    
+    .banner-content .banner-section.cop16-logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
     .banner-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex: 0 0 12.5%;
     }
     
     .banner-section.event-title {
-        flex: 0 0 50%;
+        width: 100%;
     }
     
     .royal-emblem {
@@ -789,11 +806,13 @@
     .event-title h2 {
         font-weight: bold;
         margin: 0;
-        background: linear-gradient(135deg, #1e3a8a 0%, #8B0000 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #11316D;
         line-height: 1.4;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(17, 49, 109, 0.2);
+        padding: 10px 20px;
+        text-transform: uppercase;
     }
     
     .cop16-logo {
@@ -801,24 +820,36 @@
     }
     
     .cop16-logo img {
-        max-height: 70px;
         width: auto;
         background: transparent;
         object-fit: contain;
     }
     
     @media (max-width: 768px) {
-        .banner-content {
-            flex-wrap: wrap;
+        .banner-title-row {
             padding: 10px;
         }
         
-        .banner-section {
-            flex: 0 0 50%;
+        .banner-content {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 10px;
+        }
+        
+        .banner-content .banner-section {
+            flex: 0 0 auto;
             margin-bottom: 10px;
         }
         
+        .banner-content .banner-section.cop16-logo {
+            flex: 0 0 100%;
+            order: -1;
+        }
+        
         .event-title h2 {
-            font-size: 14px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 8px 15px;
         }
     }
