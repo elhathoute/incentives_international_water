@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin=anonymous referrerpolicy=no-referrer
+    />
+    <link rel=stylesheet href="css/style.css">
+    <title>XIX World Water Congress</title>
+    <link rel="icon" type="image/jpeg" href="../img/world-water.jpeg">
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Kufi+Arabic:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .modal-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: bold;
+            color: #11316D;
+        }
+        
+        .services {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        
+        .rs-links {
+            text-decoration: none
+        }
+        
+        @media only screen and (max-width:768px) {
+            .service .card a,
+            .service .card a p {
+                font-size: 10px
+            }
+            .services {
+                width: 100%;
+                height: 600px;
+            }
+        }
+        
+        @media screen and (max-width:600px) {
+            .pied-de-page .section-3 {
+                display: none!important
+            }
+            .pied-de-page {
+                background-color: #fff
+            }
+        }
+        
+        /* Logos Container Styles */
+        .logos-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            width: 100%;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.2) transparent;
+        }
+        
+        .logos-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .logos-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .logos-container::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+        
+        .logos-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .logos-slide {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            animation: slide 40s linear infinite;
+            will-change: transform;
+        }
+        
+        .logos-container:hover .logos-slide {
+            animation-play-state: paused;
+        }
+        
+        .logos-slide img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1rem;
+            background: transparent;
+        }
+        
+        .logos-slide img:hover {
+            transform: scale(1.15);
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logos-slide {
+                gap: 2rem;
+            }
+            
+            .logos-slide img {
+                height: 60px;
+            }
+        }
+        
+        /* Sponsored by and Media Partners sections */
+        #sponsored-section,
+        #media-partners-section {
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        /* Apply styles only to images, not text headings */
+        #sponsored-section img,
+        #media-partners-section img {
+            background: #f0f0f0 !important;
+            background-color: #f0f0f0 !important;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        /* Ensure headings are not affected and style as titles */
+        #sponsored-section h3,
+        #media-partners-section h3 {
+            white-space: normal;
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            color: #11316D !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem !important;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #11316D;
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+   
+                <div class="col-sm-12 col-md d-flex justify-content-center">
+                    <div class="banner-container">
+                        <div class="banner-content">
+                            <!-- Div 1: Royaume du Maroc -->
+                            <div class="banner-section royal-emblem">
+                                <img src="https://worldwatercongress.com/wp-content/uploads/2025/06/partenaire_01.png" alt="Royaume du Maroc" style="background: transparent;">
+                            </div>
+                            
+                            <!-- Div 2: IWRA -->
+                            <div class="banner-section anef-logo">
+                                <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" style="background: transparent;">
+                            </div>
+                            
+                            <!-- Div 3: Event Title -->
+                            <div class="banner-section event-title">
+                                <h2>Under The High Patronage Of His Majesty King Mohammed VI</h2>
+                            </div>
+                            
+                            <!-- Div 4: World Water Congress Logo -->
+                            <div class="banner-section cop16-logo">
+                                <img src="https://worldwatercongress.com/wp-content/uploads/2025/01/logo-New2.png" alt="World Water Congress" style="background: transparent;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=container>
+        <div class=services>
+            <div class="row service">
+                <!-- Card 1: Programme -->
+                <div class="col-md  col-sm-12 col-md card card1 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../program-side-event.html">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-calendar-alt" style="font-size: 48px; color: #1e3a8a; margin-bottom: 10px;"></i>
+                            <span style="font-size: 16px; font-weight: bold; color: #1e3a8a;">Programme</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Documentation -->
+                <div class="col-md  col-sm-12 col-md card card2 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../documentation.html">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-file-alt" style="font-size: 48px; color: #1e3a8a; margin-bottom: 10px;"></i>
+                            <span style="font-size: 14px; font-weight: bold; color: #1e3a8a;">Documentation</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Film -->
+                <div class="col-md  col-sm-12 col-md card card1 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../film.html">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-video" style="font-size: 48px; color: #1e3a8a; margin-bottom: 10px;"></i>
+                            <span style="font-size: 16px; font-weight: bold; color: #1e3a8a;">Film</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 4: Social Media -->
+                <div class="col-md  col-sm-12 col-md card card2 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../social-media.html">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-share-alt" style="font-size: 48px; color: #1e3a8a; margin-bottom: 10px;"></i>
+                            <span style="font-size: 16px; font-weight: bold; color: #1e3a8a;">Social Media</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 5: Plan de masse -->
+                <div class="col-md  col-sm-12 col-md card card1 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../plan-masse.html">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 48px; color: #1e3a8a; margin-bottom: 10px;"></i>
+                            <span style="font-size: 16px; font-weight: bold; color: #1e3a8a;">Plan de masse</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 6: About Forum / Logos -->
+                <div class="col-md  col-sm-12 col-md card card2 m-2 p-3 animate__animated animate__jackInTheBox">
+                    <a href="../about-forum.html">
+                        <img src="https://www.iwra.org/wp-content/uploads/2025/10/cropped-IWRA-LOGO-2025-72dpi.png" alt="IWRA" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Footer Section - Sponsored by and Media Partners -->
+    <footer class="container  mb-4">
+        <div class="px-4">
+            <!-- Sponsored by Section - 100% -->
+            <div class="rounded-xl rounded-2xl px-4" id="sponsored-section">
+                <h3 class="text-center text-xl text-md-2xl font-bold mb-4 mb-md-6 text-dark">Sponsored by</h3>
+                <div class="logos-container">
+                    <div class="logos-slide" id="sponsored-logos">
+                        <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                        <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                        <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                        <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                        <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                        <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                        <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                        <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                        <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                        <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+                        <img src="https://marocpme.gov.ma/wp-content/uploads/elementor/thumbs/logo-fr-tif-qnk8b1e81192aeih1jkvg3vp71eeib9fvlgeptthms.png" alt="Maroc PME" loading="lazy">
+                        <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                        <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                        <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                        <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                        <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                        <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                        <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                        <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                        <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                        <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+                        <img src="https://www.cosumar.co.ma/wp-content/themes/cosumar/Proto/app/assets/images/logo.png" alt="Cosumar" loading="lazy">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFm-RDZub5NCA/company-logo_200_200/company-logo_200_200/0/1729870691643?e=1765411200&v=beta&t=FltavPpacw7chizB39lqxxK3DUm5EOWqs10XMKj68sE" alt="Company Logo" loading="lazy">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDFAaWzMc-5DyQNKvEx5fE2TyG6gU5N1PYA&s" alt="Logo" loading="lazy">
+                        <img src="https://worldwatercongress.com/wp-content/uploads/2025/11/IRZER.jpg" alt="IRZER" loading="lazy">
+                        <img src="https://www.rekrute.com/rekrute/file/jobOfferLogo/jobOfferId/176170" alt="Logo" loading="lazy">
+                        <img src="https://cloud2.agilgo.com/schiele/wp-content/uploads/2024/01/Logo-lighte.svg" alt="Schiele" loading="lazy">
+                        <img src="https://www.sbtx.ma/_next/image?url=%2Fimages%2Fsbtx-light.png&w=256&q=75" alt="SBTX" loading="lazy">
+                        <img src="https://www.sahambank.com/wp-content/themes/newbank/assets/img/saham-bank-logo.svg" alt="Saham Bank" loading="lazy">
+                        <img src="https://cid.co.ma/wp-content/themes/cid/assets/img/common/logo.png" alt="CID" loading="lazy">
+                        <img src="https://assets.bizafrix.com/uploads/logo/laboratoire-public-dessais-detudes-ma-logo.jpg" alt="Laboratoire Public" loading="lazy">
+                        <img src="https://www.aic-signalisation.ma/uploads/config/images/5e4aa3de47be2.png" alt="AIC Signalisation" loading="lazy">
+                        <img src="https://watec.ma/assets/images/resources/logo-watec-1.webp" alt="WATEC" loading="lazy">
+                        <img src="https://marocpme.gov.ma/wp-content/uploads/elementor/thumbs/logo-fr-tif-qnk8b1e81192aeih1jkvg3vp71eeib9fvlgeptthms.png" alt="Maroc PME" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Media Partners Section - Hidden until scroll completes -->
+            <div class="rounded-xl rounded-2xl p-4 p-md-5 p-lg-6 mb-4 mb-md-5 mb-lg-6" id="media-partners-section" style="display: none; opacity: 0;">
+                <h3 class="text-center text-xl text-md-2xl font-bold mb-4 mb-md-6 text-dark">Media partners</h3>
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5 gap-lg-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/MAPmaroc-logo.jpg" alt="MAP - Maghreb Arab Press Agency" style="height: 64px; width: auto; object-fit: contain; filter: grayscale(0.3) brightness(0.9);">
+                    <img src="https://www.snrt.ma/themes/snrtma/img/logo.png" alt="SNRT" style="height: 64px; width: auto; object-fit: contain; filter: grayscale(0.3) brightness(0.9);">
+                    <img src="https://img.medi1tv.com/brand_medi1tv.jpg" alt="MEDI1 TV" style="height: 64px; width: auto; object-fit: contain; filter: grayscale(0.3) brightness(0.9);">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Show Media Partners after Sponsored by scroll completes one cycle, then show Sponsored by again after 4 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const sponsoredLogos = document.getElementById('sponsored-logos');
+            const sponsoredSection = document.getElementById('sponsored-section');
+            const mediaPartnersSection = document.getElementById('media-partners-section');
+            
+            if (sponsoredLogos && sponsoredSection && mediaPartnersSection) {
+                
+                // Function to show Media Partners
+                function showMediaPartners() {
+                    // Hide the sponsored section with fade out
+                    sponsoredSection.style.transition = 'opacity 0.5s ease-out';
+                    sponsoredSection.style.opacity = '0';
+                    
+                    // After fade out, hide it completely and show media partners
+                    setTimeout(function() {
+                        sponsoredSection.style.display = 'none';
+                        
+                        // Show media partners with fade in
+                        mediaPartnersSection.style.display = 'block';
+                        mediaPartnersSection.style.transition = 'opacity 0.5s ease-in';
+                        setTimeout(function() {
+                            mediaPartnersSection.style.opacity = '1';
+                            
+                            // After 4 seconds, show Sponsored by again
+                            setTimeout(showSponsoredBy, 4000);
+                        }, 10);
+                    }, 500); // Wait for fade out to complete
+                }
+                
+                // Function to show Sponsored By again
+                function showSponsoredBy() {
+                    // Hide the media partners section with fade out
+                    mediaPartnersSection.style.transition = 'opacity 0.5s ease-out';
+                    mediaPartnersSection.style.opacity = '0';
+                    
+                    // After fade out, hide it completely and show sponsored by
+                    setTimeout(function() {
+                        mediaPartnersSection.style.display = 'none';
+                        
+                        // Show sponsored by with fade in
+                        sponsoredSection.style.display = 'block';
+                        sponsoredSection.style.transition = 'opacity 0.5s ease-in';
+                        setTimeout(function() {
+                            sponsoredSection.style.opacity = '1';
+                        }, 10);
+                    }, 500); // Wait for fade out to complete
+                }
+                
+                // Listen for animation iteration (when one cycle completes)
+                sponsoredLogos.addEventListener('animationiteration', showMediaPartners);
+            }
+        });
+    </script>
+    
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
+<script src="js/jquery.gScrollingCarousel.js"></script> 
+<script>
+  $(document).ready(function(){
+    $(".g-scrolling-carousel .items").gScrollingCarousel();
+  });
+</script>
+</body>
+</html>
+            <div class="col-2 section-3">
+                <!-- <button style=background:#f5f5f5;border:0 type=button class="btn btn-primary" data-bs-toggle=modal data-bs-target=#exampleModal><img src=logoqr.png width=50px alt></button> -->
+            </div>
+            
+                <!-- <button style=background:#f5f5f5;border:0 type=button class="btn btn-primary" data-bs-toggle=modal data-bs-target=#exampleModal><img src=logoqr.png width=50px alt></button> -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Modal-1 -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 4px 20px;">
+                    <h2 class="modal-title" id="exampleModal1Label">SIDE EVENTS</h2>
+                    <button type="button" style="border: none;background: #fff;" data-bs-dismiss="modal"><img src=img/back1.png width=50px alt></button>
+                </div>
+                <div class="modal-body" style="padding: 0px;">
+
+                    <iframe src="./files/program.pdf" width="100%" height="100%"> </iframe>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js " integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ==" crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
+</body>
+
+</html>
